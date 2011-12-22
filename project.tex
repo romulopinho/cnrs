@@ -1,10 +1,11 @@
 \documentclass{article}
 
 \usepackage{fullpage}
+\usepackage{natbib}
 
-\title{Concours CNRS 2012 -- Projet de Recherche}
-\author{R\^omulo TEIXEIRA DE ABREU PINHO}
-\date{}
+\title{Automatic Assessment and Stenting of Arterial Stenosis}
+\author{Concours CNRS 2012 -- Projet de Recherche}
+\date{R\^omulo TEIXEIRA DE ABREU PINHO}
 
 \begin{document}
 
@@ -15,9 +16,96 @@
 \end{flushleft}
 
 \begin{abstract}
-This project proposal presents a series of novel methods for patient-specific, computer-aided choice of vascular stents.
+
 \end{abstract}
 
+\tableofcontents
+
 \section{Introduction}
+
+The choice of the stent dimensions is a direct result of the assessment of tracheal stenosis. Hence, when assessing the strictures, it is important to carefully determine their location, length, and degree of narrowing \citep{Boiselle}. The correct assessment, in conjunction with other diagnostic
+tools, also aids in determining if the patient is a candidate for surgery or stent implant.
+
+Stenosis assessment and stent choice have also been a topic of interest in the cardiovascular community. \citet{Florez} proposed a graphical model for vascular stent pose simulation. The model represents a deformable cylindrical surface that responds to an energy minimization function controlling its bending and how it is attracted to artery boundaries in image data. \citet{Bemmel} employed level-sets for the segmentation of the stenotic artery and manually chose a healthy section
+of the artery as a reference to compute the level of stenosis.
+
+Concomitantly with developments in the search for treatments for tracheal stenosis, Active Contour Models (ACMs, or snakes) and Active Shape Models (ASMs) have been important tools in computer aided diagnoses. The former is used to detect contours in an image by minimising an energy function controlling the bending and stretching of the contour and how it is attracted by image features \citep{Kass}. The latter type of models capture statistical shape variations from a set of training shapes and can be registered to clinical image data by simple adjustment of their parameters.
+In addition, a distinctive characteristic of ASMs is that they only generate shapes that resemble those in the training set. This makes them more robust to noise and occlusion in comparison with other deformable models and free-form registration techniques \citep{Cootes}
+
+Having the above concepts in mind, this thesis sets forth a decision support
+system that proposes a method for assessment of tracheal stenosis and
+prediction of stent length and diameter. The main idea behind this method
+is to estimate the shape of the trachea of a patient as if stenosis were not
+present. To this end, an ASM built solely with healthy tracheas is registered
+to the CT scan of that patient. The expected result is that the registration
+yields a shape that matches the healthy areas of the trachea, while at the
+same time avoids the influence of the narrowed regions. Since, as mentioned
+above, an ASM only generates shapes that resemble those in its training
+set, the local geometric variations of the strictures, typical of stenosis, are
+avoided.
+
+Despite the motivation to use an ASM with healthy tracheas in order
+to avoid the local variations of the stenosis, the strictures may have global
+influence on the registration of the ASM to the image. Since variations in
+calibre are usually present in the model, the strictures can eventually make
+the resulting shape globally much narrower than desired. For this reason, a
+novel Robust ASM Fitting procedure, called Fixed Landmarks, is proposed.
+The idea behind the Fixed Landmarks is to reinforce the resistance of the
+registration to the attraction incurred by the narrowed parts of the trachea.
+This is achieved by keeping the parts of the estimated trachea corresponding
+to regions with stenosis fixed at each iteration, relative to their location
+at the previous iteration. In this way, not only are the narrowed regions
+avoided, but the fixed areas incur an extra repelling force that will aid in
+the estimation of the healthy tracheal wall over those regions.
+
+When the ASM registration is finished, it is thus expected that the
+resulting shape be estimation of the patient’s trachea as if stenosis were
+not present. In order to assess the extent and degree of stenosis, however,
+it is still necessary to segment the narrowed trachea from the image.
+This is achieved using an ACM tailored for this purpose. Using the estimated
+healthy trachea as a starting point, the ACM will deform it until the
+boundary of the narrowed trachea is completely detected. The internal and
+external forces of the ACM were therefore specifically designed to let the
+model yield the best possible contour delineation with the lowest possible
+shape deformation.
+\section{Estimation of Healthy Arteries}
+
+When physicians
+assess the stenosis, it is intuitive to imagine that they try to guess
+from the available data how the patient’s trachea would appear if the narrowing
+were not present. This image of the healthy trachea is the basis to
+determine the location, length, and degree of the stricture. The image of the calibre and curvature of the estimated healthy shape also aid in choosing
+the type and dimensions of the stent to be used, or even the shape the
+trachea should have after a reconstruction surgery.
+
+Inspired by this procedure, the proposed method aims at providing to
+the physician the desired healthy shape. This shape not only represents
+the necessary visual aid in the diagnostic and pre-operative processes, but
+also enables the automatic assessment of the stenosis and suggestion of
+patient-specific stent dimensions. The estimation of the healthy shape of
+the trachea is obtained thanks to the use of an Active Shape Model of
+healthy tracheas and to a new algorithm to register such model to CT
+data.
+
+An Active Shape Model (ASM), as defined by \citet{Cootes}, is
+a statistical model of shapes whose objective is to capture the geometric
+variation present in a set of training shapes. This model is then capable
+of generating new shape instances which are constrained by the statistical
+variation of the training set, referred to as the allowable shape domain.
+As a result, a defining characteristic of ASMs, which is an advantage with
+respect to other deformable models, is that they can only generate shapes
+that resemble those in the training set.
+
+This characteristic is the motivation to use an ASM of healthy tracheas
+to estimate the healthy tracheal shape of a patient with stenosis. Since the
+model contains only instances of healthy tracheas, local geometric variations
+typical of stenosis cannot be generated. The details of the construction and
+use of the proposed ASM are presented in the following.
+
+
+
+
+\bibliographystyle{plainnat}
+\bibliography{trachea}
 
 \end{document}
