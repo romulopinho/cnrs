@@ -3,25 +3,23 @@ latex = pdflatex
 
 pics := flow.pic
 
-project.pdf : project.dvi
+pdf : dvi
 	#dvips project.dvi
 	#ps2pdf project.ps
 	
-project.dvi : project.bbl project.tex  
+dvi : bbl  
 	$(latex) project.tex
 	
 $(pics) : %.pic : %.flo
 	flow  $< $@
 
-project.bbl : project.tex
+bbl : 
 	# generate .aux
 	$(latex) project.tex
 	# generate .bbl
 	bibtex project
-	# integrate .bbl
-	$(latex) project.tex
 	
-view : project.pdf
+view : pdf
 	$(pdfviewer) project.pdf &
 	
 clean :
