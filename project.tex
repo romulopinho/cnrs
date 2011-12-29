@@ -4,7 +4,7 @@
 \usepackage{natbib}
 \usepackage{graphics}
 \usepackage{multirow}
-\usepackage[table]{xcolor}
+%\usepackage[table]{xcolor}
 
 \title{Automatic Assessment and Stenting of Arterial Stenosis}
 \author{Concours CNRS 2012 -- Projet de Recherche}
@@ -19,7 +19,7 @@
 \end{noindent}
 
 \begin{abstract}
-Atherosclerosis figures as one of the leading cardiovascular diseases, which remain as the major cause of death in developed countries. 
+Atherosclerosis figures as one of the leading cardiovascular diseases, which remain as the major cause of death in developed countries. Minimally invasive interventions are increasingly becoming the treatment option of choice, given the reduced surgical risk for the patient. A good example is the use of stents to reopen arterial stenosis or to protect the dilated walls of aneurysms from further expansion. Stent choice remains, nevertheless, as a subjective decision. An inadequate stent may migrate to another location, may exert exaggerated pressure on the arterial walls, may not properly cover the affected area, etc. 
 \end{abstract}
 
 \tableofcontents
@@ -76,11 +76,13 @@ shape deformation.
 
 The objective of the proposed project is to develop a solution for the problem of stent choice in the treatment of vascular stenoses and aneurysms. To achieve the desired result, several challenges need to be faced, among them the segmentation of the arterial tree and its surface representation, the construction of a model to predict healthy arteries from images of affected patients, an algorithm for the quantification of stenosis and aneurysms, a model for the choice of stent taking into account arteries' and stents' physical properties, and, finally, a simulation environment for the study of stent placement and blood flow. In the following, each of these aspects is discussed in more detail, and the envisioned solutions in the context of this project proposal are presented.
 
-\subsection{Segmentation of the Arterial Tree}
-
 \subsection{Surface Representation of the Arterial Tree}
 
 \subsection{Estimation of Healthy Arteries}
+
+In my thesis, I proposed a method for the estimation of healthy tracheae from CT images of patients suffering from tracheal stenosis. This method is based on the construction of a statistical model \citep{Cootes} of 3D surfaces of healthy tracheae. When the model is registered to a CT scan of a patient with tracheal stenosis, it is capable of matching the parts of the tracheal wall that are healthy while at the same providing an estimation for the narrowed walls if they were healthy as well. This method showed very promising results \citep{Pinho:Trachea4}.
+
+A natural extension of my thesis is the application of the proposed method in the cardiovascular domain. Since arteries, as well as tracheae, are objects of tubular topology, and the characteristics of their stenoses are roughly the same, it is intuitive to believe that the method will also be able to estimate the shape of healthy arteries from images of patients with arterial stenosis. This rule also tends to apply in the case of aneurysms, as long as there are enough healthy arterial regions around the location of the swelling.
 
 When physicians
 assess the stenosis, it is intuitive to imagine that they try to guess
@@ -114,6 +116,10 @@ model contains only instances of healthy tracheae, local geometric variations
 typical of stenosis cannot be generated. The details of the construction and
 use of the proposed ASM are presented in the following.
 
+\subsection{Segmentation of the Arterial Tree}
+
+The segmentation of the arterial tree has been a topic of study for quite some time \cite{}. My experience with the segmentation of the trachea, however, has demonstrated that the segmentation of narrowed tube-like structures in medical images (such as arteries with stenosis) can be challenging. I will then experiment with the deformable model I proposed in my thesis, based on the snake model by \cite{Kass}.
+
 \subsection{Stent Choice}
 
 \subsection{Stent Simulations}
@@ -129,43 +135,57 @@ use of the proposed ASM are presented in the following.
 
 My intention of joining the CREATIS group is on the one hand to benefit from their expertise in the several areas correlated to this project proposal. On the other hand, it will be my role to contribute to this expertise by bringing to the lab my own experience with the assessment and stenting of tracheal stenosis and applying it to the cardiovascular domain.
 
-CREATIS have at their disposal an internal computer cluster and also the computation power of the {\bf Centre de Calcul de L'Institut National de Physique Nucléaire et de Physique des Particules (CC-IN2P3)}. These will be invaluable tools for the simulation part of the proposed project. 
+CREATIS have at their disposal an internal computer cluster and also the computation power of the {\bf Centre de Calcul de L'Institut National de Physique Nucl\'eaire et de Physique des Particules (CC-IN2P3)}. These will be invaluable tools for the simulation part of the proposed project. 
 
-Most importantly, CREATIS also profit from a very multidisciplinary nature and strong links with the clinical practice, most notably that of the {\bf h\^opital neuro-cardiologique des Hospices Civiles de Lyon (HCL)} and of the {\bf Centre L\'eon B\'erard (CLB)}. This will give me the opportunity to evaluate the results of the proposed project with real patients and to have immediate feedback from physicians. 
+Most importantly, CREATIS also profit from a very multidisciplinary nature and strong links with the clinical practice, most notably that of the {\bf h\^opital neuro-cardiologique des Hospices Civiles de Lyon (HCL)} and of the {\bf Centre L\'eon B\'erard (CLB)}. This will give me the opportunity to evaluate the results of the proposed project with real patient data and to have immediate feedback from physicians. 
 
 \subsection{Collaborations}
 
 During my PhD in Belgium, I established a very good relationship Prof. Dr. Jan Sijbers, who was my thesis supervisor, in the VisionLab group of the University of Antwerp. The group has large experience with medical image segmentation problems and modelling of cylindrical objects, which could be interesting in the context of this project. I would like to bring the VisionLab and CREATIS together during the course of the proposed project, so that they can benefit from each other's work.
 
-My stay in Belgium also allowed me to get acquainted with the work of Matthieu De Beule, from the Stent Research Unit of the University of Ghent. His thesis was focussed on the design of stents using numerical simulations, on which much of this project would be based. 
+My stay in Belgium also allowed me to get acquainted with the work of the Stent Research Unit of the University of Ghent. Their work was focussed on the design of stents using numerical simulations, on which much of this project may be based. 
 
 I also envision collaborations with the academic and industrial partners of the European Project THROMBUS, the aim of which is to evaluate the efficacy of the use of stents in neurological aneurysms. These partners, including CREATIS, combine expertise in different areas and will certainly be a good source of information for my project.
 
+Lastly, an opportunity will be open from early 2014, with the calls for the UE project ''Horizon 2020``. This will probably be a good chance to join partners such as those in the THROMBUS project or establish new partnerships. 
+
 \subsection{Tentative Schedule}
 
-\begin{table}[h]
-\centering
+%\begin{table}[h]\centering
+%\caption{Tentative project schedule for 4 years, subdivided into semesters.}
+%\begin{tabular}{c|c|c|c|c|c|c|c|c|}
+%\cline{2-9}
+% & \multicolumn{2}{|c|}{Y1} & \multicolumn{2}{|c|}{Y2} & \multicolumn{2}{|c|}{Y3} & \multicolumn{2}{|c|}{Y4} \\ \cline{2-9}
+% & S1 & S2 & S3 & S4 & S5 & S6 & S7 & S8  \\ \hline
+%\multicolumn{1}{|c|}{Apply existing model} & \cellcolor{green} & & & & & & & \\ \hline
+%\multicolumn{1}{|c|}{Segmentation and modelling} & & \cellcolor{green} & \cellcolor{green} & \cellcolor{green} & & & & \\ \hline
+%\multicolumn{1}{|c|}{Stent choice and simulations} & & & & & \cellcolor{green} & \cellcolor{green} & \cellcolor{green} & \cellcolor{green} \\ \hline
+%\end{tabular}
+%\label{tab:schedule}
+%\end{table}
+
+\begin{table}[h]\centering
 \caption{Tentative project schedule for 4 years, subdivided into semesters.}
 \begin{tabular}{c|c|c|c|c|c|c|c|c|}
 \cline{2-9}
  & \multicolumn{2}{|c|}{Y1} & \multicolumn{2}{|c|}{Y2} & \multicolumn{2}{|c|}{Y3} & \multicolumn{2}{|c|}{Y4} \\ \cline{2-9}
  & S1 & S2 & S3 & S4 & S5 & S6 & S7 & S8  \\ \hline
-\multicolumn{1}{|c|}{Apply existing model} & \cellcolor{green} & & & & & & & \\ \hline
-\multicolumn{1}{|c|}{Segmentation and modelling} & & \cellcolor{green} & \cellcolor{green} & \cellcolor{green} & & & & \\ \hline
-\multicolumn{1}{|c|}{Stent choice and simulations} & & & & & \cellcolor{green} & \cellcolor{green} & \cellcolor{green} & \cellcolor{green} \\ \hline
+\multicolumn{1}{|c|}{Apply existing model} & & & & & & & & \\ \hline
+\multicolumn{1}{|c|}{Segmentation and modelling} & & & & & & & & \\ \hline
+\multicolumn{1}{|c|}{Stent choice and simulations} & & & & & & & & \\ \hline
 \end{tabular}
 \label{tab:schedule}
 \end{table}
 
-Table \ref{tab:schedule} shows a tentative schedule for the proposed project. The objective in the short term, roughly the first 6 months, is to try to directly apply the statistical model I proposed in my thesis to cases of arterial stenosis and aneurysms. I have reasons to believe that this step tends to be rather straightforward, requiring only few modifications to the original method, if any. The possibly biggest challenge here would be the segmentation and surface modelling of the arteries, which, in the first instance, could be simplified (e.g., not taking bifurcations into account) and accomplished with existing techniques so as to yield acceptable results in a short period of time. 
+Table \ref{tab:schedule} shows a tentative schedule for the proposed project. The objective in the short term, roughly the first 6 months, is to try to directly apply the statistical model I proposed in my thesis to cases of arterial stenosis and aneurysms. I have reasons to believe that this step tends to be rather straightforward, requiring only few modifications to the original method, if any. The possibly biggest challenge would be the segmentation and surface modelling of the arteries, which, in the first instance, could be simplified (e.g., not taking bifurcations into account) and accomplished with existing techniques so as to yield acceptable results in a short period of time. 
 
-The following step, to be carried out during the next 18 months, would be the extension of the statistical model with anatomical information about the arterial tree. This would require the interaction with those in the domain of geometrical modelling...
+The following step, to be carried out during the next 18 months, will be the extension of the statistical model with anatomical information about the arterial tree. Bifurcations will also be taken into account. 
 
 Finally, the remaining 24 months will be dedicated to the stent choice and simulation parts. The starting point of this step will be the stent choice with a generic stent and artery model. In other words, stents' and arteries' physical properties will not be taken into account. In this way, we will be able to at least evaluate if the generic stents computed with use of the statistical model are adequate. Later, blood flow and stent design simulation results will be used to improve the statistical model and, ultimately, the automatic stent choice.  
 
 \section{Conclusions}
 
 \bibliographystyle{plainnat}
-\bibliography{trachea,stents}
+\bibliography{mybib,trachea,stents}
 
 \end{document}

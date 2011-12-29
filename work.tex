@@ -1,0 +1,194 @@
+\documentclass[a4paper]{article}
+
+\usepackage{fullpage}
+\usepackage{graphics}
+\usepackage{multirow}
+\usepackage[subsectionbib]{bibunits}
+
+\newcommand{\prefetch}{\textit{pre-fetching}}
+\newcommand{\Prefetch}{\textit{Pre-fetching}}
+\newcommand{\outcore}{\textit{out-of-core}}
+\newcommand{\incore}{\textit{in-core}}
+\newcommand{\incorespc}{\textit{in-core }}
+\newcommand{\wincache}{\textit{WindowCache}}
+
+\newcommand{\fixedland}{{\it Fixed Landmarks}}
+
+\title{Report on Previous Work}
+\author{Concours CNRS 2012}
+\date{R\^omulo TEIXEIRA DE ABREU PINHO}
+
+\begin{document}
+
+\maketitle
+
+\begin{abstract}
+During the little more than 10 years of my professional and academic life, I have nearly always been involved in research and development activities. In the industry, I spent around 7 years developing applications including computer games, database systems, speech recognition systems, GIS, and video and audio processing. Also during this period, I received my M.Sc. in software engineering and worked in a research project for the civil engineering domain. When I fully re-engaged the academic life, I received my PhD and also worked in research projects, among which the one I am currently involved with, during my post-doc. 
+
+\end{abstract}
+
+\tableofcontents
+
+\medskip
+\medskip
+
+\hrule
+\section{R{\&}D in the Software Industry}
+\hrule
+
+\medskip
+\medskip
+
+I believe that my 7-year experience in the software industry is an important asset in this application for a CNRS researcher position, mainly because most of what I have done is in the field of graphics and multimedia. In this section, I summarize in chronological order the professional activities that I find most relevant for this application. 
+
+\subsection{January, 1998 -- January, 1999, Z-Movie Studio, Game Development}
+
+My job as a game developer at Z-Movie Studio included the design and development of game logic and 2D and 3D algorithms for educational games. I worked on 2 titles, the first one being a first-person game with an emulated 3D environment, with all the sceneries of city the main character lived projected on the faces of a cube. The idea was that the main character, Lucas, would walk around his city facing different challenges of maths and languages. Each of these challenges was also a small, 2D game on its own. There were games like bow and arrow, word-guessing, and pac-man and river-raid variations. 
+
+The second title was an adaptation of a children's book, ``Pluf, o Fantasminha'', to the gaming sector. My duties in this project included the development the game's 3D engine, with character animation, simple collision detection algorithms, alpha and texture blending. In the game, the player could choose which book character to play and could even voice the character over, in such a way that the player could tell his or her own version of the original story. 
+
+\subsection{January, 2001 -- April, 2006, TV Globo, TV Systems}
+
+During this period, I worked in the research and development department of TV Globo, the largest TV broadcaster in Brazil and one of the largest in the world. Overall, I was involved in the whole software development cycle and had the chance to participate in a couple of different projects. Here, I briefly describe the ones I find the most important.
+
+\subsubsection{Store and Forward}
+
+My first and most important project, and also the one I was responsible for during my whole stay in the company, was to develop a system of {\em Store and Forward} (SF) for news reports. The philosophy of the company's international news coverage by the time was to have 2 international offices, one in New York and one in London, from where correspondents based on either of the two locations would travel to the news site, tape the necessary material, bring it back to the office, and send it to the company's HQ's in Rio de Janeiro or S\~ao Paulo via satellite. Satellite time was rented as short time windows, the cost of which being in the order of a couple of thousands of dollars. 
+
+The main idea behind the SF concept was to benefit from the increasing availability of broadband internet to give more flexibility to the correspondents and at the same time reduce costs. The correspondents were then equipped with a professional, digital, lightweight video camera, with which they would make the news coverage, and a laptop. The laptop had installed in it an in-house developed software (roughly 90\% conceived and developed by myself) to: 1) control the camera and transfer the taped material to the laptop (the {\em Store} step); 2) compress the transferred material and send it to the company's HQ's via internet (the {\em Forward} step). 
+
+The biggest challenge in this project was in task 2 above. First, it was necessary to define compression protocols with a good compromise between video and audio quality and file size. Windowsmedia \copyright, one of the first commercial implementations of the MPEG-4 format, was the chosen option. Our SF solution was the first in the world to adopt Windowsmedia in broadcasting. Second, there was the problem of transmission. We opted to develop a proprietary FTP-like protocol, for security reasons. In order to enable the connections to pass through firewalls and proxies, the protocol could also be embedded in an HTTP layer. I conceived, designed, and implemented all aspects of this protocol. 
+
+The project was fortunately a big success, which revolutionized the company's news coverage philosophy. The cost of transmissions dropped so drastically that with time the 2 international offices were reduced in size and the correspondents were redistributed throughout Europe, the USA, South America, and even Asia, sending their material through their personal internet connections. What is more, with a laptop-sized antenna, correspondents could be sent to remote locations and transmit their materials directly from the news site, be it in the middle of Iraq or Afghanistan, while climbing the Everest or the Aconcagua, or from inside a boat in the middle of an ocean. Given the size of Brazil, the system also started to be used for national news coverage, especially in remote locations. 
+
+We were invited to give a talk about the news coverage in the Iraq War during the meeting of the Brazilian Television Engineering Society (SET), in 2003\footnote{http://www.set.com.br/eventos/set2003/default.htm}. It was also during this project that I had my first (yet short) experience in coordination, when I had another developer and an intern working under my supervision.
+
+\subsubsection{Video Indexing}
+
+Video indexing is the process of building a database of video and audio tracks that can easily be annotated, searched, reviewed, and used in a video editing work flow. The first system of this type on which I worked at TV Globo was to select football match highlights to be re-exhibit during the match's interval. Video loggers watching the match would mark the points they considered interesting. These mark was associated to the corresponding video time code and with a short description indicating what was happening in that specific event. Next, a video editor would make a selection of videos matching a certain criterion, e.g., ``All shots of player Ronaldinho'', or, ``All fights in the match''. The teams, the players, the events, and the match periods were all indexes in the database, which facilitated and speeded-up the database queries. In the first version of this project, the time codes pointed to parts of the video tapes that contained the recorded match. The editing process was then entirely made with tape copies. In the next, tapeless version, video capturing machines were employed, with the matches being recorded in full and low resolution versions. Event logging, selection, and editing were then carried out with the low resolution and the equivalent parts of the full resolution videos were rendered together in a ``flat file'' before being entering broadcasting work flow. I participated in nearly all parts of this project, mainly in the database layer that was the base of all applications. 
+
+An experimental and much larger version of the tapeless highlights project was developed for the Olympic Games of 2004, in Athens. The overall concept was the same, that is, event logging, selection, and editing in low resolution, final material in full resolution. The biggest challenge this time was to extend the football match principle to all sport modalities of the Olympic Games and to manage an unprecedented (at the time) number of video signals being captured in Rio de Janeiro and in Athens at the same time. In this project, I was the lead designer, developer, and administrator of the database model that controlled the entire video indexing process, besides contributing to other parts of the system. It also gave me the opportunity to work for 2 months in Athens, in the press centre, among those that were managing the on-site production and transmission of the Games to Brazil.
+
+\medskip
+\medskip
+\hrule
+\section{Academic Research}
+\hrule
+\medskip
+\medskip
+
+The research projects in which I have worked, including my M.Sc. and PhD theses, have always been in the field of computer graphics and image processing. Next, each of these projects is summarized.
+
+\subsection{October, 1996 -- January, 1998, ADDLabs UFF, Virtual Reality}
+
+The Active Document Design Labs (ADDLabs) is a research unit of the Universidade Federal Fluminense specialized in the research and development of applications of artificial intelligence. My role was to develop an experimental, virtual reality module for a system used in the positioning of submerged objects in oil exploitation fields. The first challenge was to render the ocean surface based on its elevation map, using a ray casting algorithm, and to render the polygonal models of the objects placed with the positioning system. The next step was to render the 3D scenes in VR mode. Two approaches were tried, one with VR goggles and another with a VR helmet having head tracking capabilities. The difference between the two was in how the scene was painted. With the goggles, the left and right views needed to be painted in interlaced mode, so that even lines would be rendered on left display and odd lines on the right display. With the helmet, in turn, the two views were painted in progressive mode, each one its own buffer. Despite the interesting results obtained, the module development was unfortunately discontinued after roughly 1,5 years.
+
+\subsection{January, 1998 -- May, 2001, UFRJ, M.Sc. Thesis}
+
+\subsection{October, 2001 -- May, 2003, LAMEC UFRJ, Geometric Modelling}
+
+I worked in Laboratory of Computational Mechanics (LAMEC) of the Universidade Federal do Rio de Janeiro (UFRJ) as software developer for a geometric modelling project in partnership with the Brazilian oil company (PETROBRAS). The submerged structure of oil platforms suffer from severe oxidation due to natural conductivity of (salted) sea water. To reduce the effects of the corrosion, galvanic (or sacrificial) anodes may be attached to the platform so that they corrode instead of the original structure. The project's aim was to model and simulate the behaviour of such anodes under working conditions. My role was to develop a geometric modelling system with which the researchers of the lab would build simplified models of platforms and anodes that would be used as polygonal meshes in the numerical simulation software. The software had a ``traditional'' 3 planar plus 1 3D view of scene being modelled. The platforms and anodes were built as combinations of simple geometric surfaces, such as cylinders, parallelepipeds, and spheres. The scenes were saved and then converted to the geometric format of the existing numerical simulation software. After obtaining the results, the software I developed could also be used for the visualization of the current flows obtained in the numerical calculations. 
+
+\subsection{April, 2006 -- November, 2010, Universiteit Antwerpen, PhD Thesis}
+
+Tracheal stenosis is an unnatural narrowing of the trachea with traumatic, neoplastic, or idiopathic causes that, despite being relatively rare, can be life threatening. When the stenosis is too long or when the patient status does not permit a surgical procedure, stent implants can render a successful solution to the stricture. Stents are tubular structures, currently made of silicone or metallic alloys, whose aim is to return normal breathing function to the patient, by pushing the walls of the stenotic area back to their original place. Since they are usually implanted with bronchoscopes, they reduce the surgical risk to the patient. A pre-condition to a successful treatment is that the size and diameter of the tubes must be correctly estimated, otherwise problems such as stent migration and improper mucus clearance may occur.
+
+The choice of the stent dimensions is a direct result of the assessment of tracheal stenosis. Hence, when assessing the strictures, it is important to carefully determine their location, length, and degree of narrowing. Traditionally, stenoses have been assessed with rigid or flexible bronchoscopy. These methods, however, are invasive and require patient sedation. They also depend on the expertise of the specialist in charge and may not even serve their purpose if the stricture is too narrow to allow the passage of the bronchoscope itself. 
+
+Concomitantly with developments in the search for treatments for tracheal stenosis, Active Contour Models (ACMs, or snakes) and Active Shape Models (ASMs) have been important tools in computer aided diagnoses. The former is used to detect contours in an image by minimising an energy function controlling the bending and stretching of the contour and how it is attracted by image features. The latter type of models capture statistical shape variations from a set of training shapes and can be registered to clinical image data by simple adjustment of their parameters. In addition, a distinctive characteristic of ASMs is that they only generate shapes that resemble those in the training set. This makes them more robust to noise and occlusion in comparison with other deformable models and free-form registration techniques.
+
+My thesis thus set forth a decision support system that proposes a method for assessment of tracheal stenosis and prediction of stent length and diameter. The characteristics of the proposed system are presented next.
+
+\subsubsection{Estimation of Healthy Tracheae}
+
+The main idea behind this method is to estimate the shape of the trachea of a patient as if stenosis were not present. To this end, an ASM built solely with healthy tracheae is registered to the CT scan of that patient. The expected result is that the registration yields a shape that matches the healthy areas of the trachea, while at the same time avoids the influence of the narrowed regions. Since, as mentioned above, an ASM only generates shapes that resemble those in its training set, the local geometric variations of the strictures, typical of stenosis, are avoided. 
+
+Despite the motivation to use an ASM with healthy tracheae in order to avoid the local variations of the stenosis, the strictures may have global influence on the registration of the ASM to the image. Since variations in calibre are usually present in the model, the strictures can eventually make the resulting shape globally much narrower than desired. For this reason, a novel {\em Robust ASM Fitting} procedure, called \fixedland, is proposed. The idea behind the \fixedland\ is to reinforce the resistance of the registration to the attraction incurred by the narrowed parts of the trachea. This is achieved by keeping the parts of the estimated trachea corresponding to regions with stenosis fixed at each iteration, relative to their location at the previous iteration. In this way, not only are the narrowed regions avoided, but the fixed areas incur an extra repelling force that will aid in the estimation of the healthy tracheal wall over those regions.
+
+\subsubsection{Segmentation of Narrowed Tracheae}
+
+When the ASM registration is finished, it is thus expected that the resulting shape be estimation of the patient's trachea as if stenosis were not present. In order to assess the extent and degree of stenosis, however, it is still necessary to segment the narrowed trachea from the image. This is achieved using an ACM tailored for this purpose. Using the estimated healthy trachea as a starting point, the ACM will deform it until the boundary of the narrowed trachea is completely detected. The internal and external forces of the ACM were therefore specifically designed to let the model yield the best possible contour delineation with the lowest possible shape deformation.
+
+\subsubsection{Assessment of Stenosis and Prediction of Stents}
+
+Once healthy and narrowed versions of the trachea are obtained, the eventual assessment of the stenosis and prediction of the stent is straightforward. The proposed method simply compares the cross sectional areas of the two surfaces along their centre lines and detects significant reductions. These determine the start and end points of the stenosis and its degree of narrowing. Such parameters are then used in another algorithm, which yields the stent to be chosen for the patient.
+
+\subsubsection{Out-of-core Image Processing}
+
+With current technology, and depending on the scanning resolution, CT image volumes of the chest can be stored in files whose sizes are in the order of gigabytes. When these files needed to be manipulated by the various algorithms used in this work, memory restrictions often arose. In particular, many of the methods proposed depend on pre-processing tasks that involve basic image processing algorithms, such as edge detection, image arithmetic, region growing, etc. As a result, this work also proposes an efficient \outcore\ strategy to manipulate these large files in image processing tasks. The idea is to keep most of the file in disk (hence the term \outcore) and take advantage of the access pattern of the algorithm through the image when loading data into main memory. In this way, an efficient cache and pre-fetching strategy is built in order to keep the relevant data in memory and load parts of the image before they are requested by the application. 
+
+\subsubsection{Segmentation of Airway Trees}
+
+Finally, in order to build the ASM, samples of healthy tracheae are necessary. These are usually obtained through segmentation and a comprehensive database of chest CT scans of healthy subjects was used in this work. Although only the trachea needs to be segmented for the presented application, this thesis proposes a method to segment the entire intrathoracic airway tree. This tree is the hierarchical tubular structure below the vocal cords, comprising trachea and bronchi, that leads the air into the lungs. The proposed method can easily be configured to segment only the trachea and generates the segmented surface along with its centre line in one go. These centre lines are also useful for the construction of the ASM. 
+
+\subsubsection{Validation}
+
+An extensive set of simulations for all proposed methods was carried out in order to perform their validation. For the \outcore\ technique, different algorithms and cache structures were tested on large files. The airway segmentation method was tested on a database of 40 image volumes, subdivided into training and testing sets. For the ASM, 38 healthy tracheae were used, corresponding to a considerable amount of shape variation. Finally, the assessment of stenosis and prediction of stents was validated with a large set of simulation experiments and with a retrospective study with 11 CT scans of 9 patients.
+
+\renewcommand{\refname}{Related publications}
+\begin{bibunit}[unsrt]
+\nocite{Pinho:Trachea4}
+\nocite{Pinho:Trachea5}
+\nocite{Pinho:Trachea6}
+\nocite{Pinho:Airways2}
+\nocite{Pinho:Trachea3}
+\nocite{Pinho:Trachea2}
+\nocite{Pinho:Trachea1}
+\nocite{Pinho:Airways1}
+\putbib[mybib]
+\end{bibunit}
+
+\subsection{April, 2010 -- December, 2010, CIMI -- IBBT, Cache and Pre-fetching}
+
+CIMI was a multi-centre projected promoted by the Belgian Interdisciplinary Institute for Broadband Technology (IBBT). The main objective of this project was to study and improve the use of colour in medical images, especially microscopic images. I was responsible for and lead developer of Task 2.1 of Work Package 2
+
+Microscopy imaging can lead to files exceeding many gigabytes, especially when multiple images
+are stitched. When such images need to be processed, memory restrictions often arise, because it
+is not possible to have input and output buffers allocated in RAM at the same time. Algorithms for
+out-of-core image processing and visualization have been proposed, but they either need extra
+copies of the original file or, when using a cache, fail to take full advantage of the locality principle
+of the processing algorithm. Solutions will also be developed to accelerate the visualization of
+
+In this project task, we formalized and extended the idea initially proposed in my PhD thesis with a sliding window, multi-threaded, read-write cache suitable for out-of-core image and video processing whose internal structure and sliding protocol matches the access pattern of the image processing algorithm. We adapted the underlying sliding window concept to different types of image processing algorithms. Finally, we performed an in-depth analysis through experiments with large microscopic image files and different image processing and visualization algorithms.
+
+\renewcommand{\refname}{Related publications}
+\begin{bibunit}[unsrt]
+\nocite{Pinho:Cache1}
+\putbib[mybib]
+\end{bibunit}
+
+\subsection{April, 2010 -- December, 2010, Segmentor -- IBBT, Haptics}
+
+This project was a partnership between the VisionLab of the Universiteit Antwerpen and the Expertise Centrum voor Digitale Media of the Universiteit Hasselt. The goal was to develop new tools for semi-automatic segmentation of tomographic images based on 3D haptic interaction and deformable shape models. Haptic interaction will not only facilitate the initialization of the model, but will guide the user during the deformation of the shape model. As an application, the focus was on semi-automatic segmentation of the tracheal stenosis from CT images, which is challenging if the tracheal narrowing is severe. In such cases, the tracheal lumen may be barely visible in the image. Although 3D ACMs are able to reconstruct missing parts of the trachea, noise and the presence of neighbour organs in the image may hinder the segmentation. The semi-automatic process proposed in this project is therefore meant to overcome such difficulties.
+
+The proposed ACM can be steered by the user with 3D input from a haptic device. Conversely, the user is provided with valuable force feedback about the 3D surface and its deformation. This interaction creates a first-person 3D environment, which gives the user the feeling that a real shape is being manipulated. The net effect is an intuitive, interactive segmentation mechanism that improves over traditional 2D approaches. The method was evaluated with two set of 3D CT images. The first is a real case of severe tracheal stenosis. The second set is a phantom of stenosis created from a real CT image, in which the oesophagus also appears in the image and may disturb the segmentation process. The results obtained with the proposed method were compared to a reference manual segmentation using traditional region growing.
+
+\renewcommand{\refname}{Related publications}
+\begin{bibunit}[unsrt]
+\nocite{Pinho:Trachea7}
+\putbib[mybib]
+\end{bibunit}
+
+
+\subsection{January, 2011 -- present, Centre L\'eon B\'erard, Mid-P Project}
+
+In the past few years, the research group I am currently on working has developed 4D deformable image registration (DIR) for 4D respiration-correlated CT images of the thorax. Among many applications, 4D DIR can be used to compute the so called Mid-Position (MidP) image, which is the time-averaged 3D CT image. In radiotherapy, treatment planning is performed on the MidP images using patient-specific margins to account for tumour motion. In 2012, the L\'eon B\'erard cancer centre will start a phase II clinical trial to compare the MidP treatment planning with the Internal Target Volume (ITV) strategy in terms of margin reduction and potential dose escalation. 
+
+All 4D CT images acquired at the hospital are automatically sent to a workstation dedicated to the project. Incoming 4D CTs trigger 4D DIR and MidP computation. The MidP images are then integrated into the clinical workflow for tumour and organ delineation and treatment planning. 
+
+4D DIR is first validated off-line. Target Registration Error (TRE) is evaluated using 4D CTs annotated by experts for corresponding landmarks, e.g., bronchial bifurcations. Smoothness of the vector field is  validated with Jacobian-based measures. Comparative studies of DIR algorithms have also allowed the comparison of our implementation with the state of the art.
+
+Patient-specific validation is performed using VV (http://vv.creatis.insa-lyon.fr/), our in-house software for the visualization of 4D CT images, which has also been integrated into the clinical workflow. The validation consists mainly in warping the 4D CT image towards the time-averaged position using the outcome of 4D DIR and verifying that there is no significant residual motion. The MidP image is also overlaid on the original 4D CT image so that motion relative to the MidP can be verified as well.
+
+This project is a partnership between the Centre L\'eon B\'erard, CREATIS, and Elekta. My role is to implement the tools that will allow the algorithms for registration and visualization to be used in the clinic. I am also responsible for maintaining and improving the existing algorithms and for proposing new ones.
+
+\renewcommand{\refname}{Related publications}
+\begin{bibunit}[unsrt]
+\nocite{DELM-11}
+\nocite{PINH-11}
+\nocite{RIT-11b}
+\putbib[mybib]
+\end{bibunit}
+
+
+\end{document}
