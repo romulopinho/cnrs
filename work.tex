@@ -23,14 +23,23 @@
 \maketitle
 
 \begin{abstract}
-During the little more than 10 years of my professional and academic life, I have nearly always been involved in research and development activities. In the industry, I spent around 7 years developing applications including computer games, database systems, speech recognition systems, GIS, and video and audio processing. Also during this period, I received my M.Sc. in software engineering and worked in a research project for the civil engineering domain. When I fully re-engaged the academic life, I received my PhD and also worked in research projects, among which the one I am currently involved with, during my post-doc. 
+Since January, 2011, I am a post-doc research engineer of the Centre Léon Bérard in Lyon, France. My current research project involves the implementation, clinical validation, and deployment of registration algorithms for lung CT images used in the planning of radiotherapy against lung cancer.
 
+I received my PhD in 2010 from the VisionLab group of the Department of Physics of the University of Antwerp, Belgium, under the supervision of Prof. Dr. Jan Sijbers. The title of my thesis was "A Decision Support System for the Assessment and Stenting of Tracheal Stenosis", in which I proposed methods to automatically quantify tracheal stenosis and predict patient-specific stent dimensions using deformable shape models.
+
+I received my M.Sc. in 2001 from the LCG group of the Systems Engineering and Computing Department of the Universidade Federal do Rio de Janeiro, Brazil, under the supervision of Prof. Dr. Ant\^onio Oliveira. The title of my thesis was ''Three-dimensional Reconstruction of Head Models from Magnetic Resonance Images''.
+
+From 1998 to 2006, I was engaged in many research and development activities in the software development sector, mostly in the fields of graphics, imaging, and multimedia. 
+
+In this document, I summarize my research activities and my work experience in the software industry.
 \end{abstract}
 
 \tableofcontents
 
-\medskip
-\medskip
+\pagebreak
+
+%\medskip
+%\medskip
 
 \hrule
 \section{R{\&}D in the Software Industry}
@@ -39,13 +48,13 @@ During the little more than 10 years of my professional and academic life, I hav
 \medskip
 \medskip
 
-I believe that my 7-year experience in the software industry is an important asset in this application for a CNRS researcher position, mainly because most of what I have done is in the field of graphics and multimedia. In this section, I summarize in chronological order the professional activities that I find most relevant for this application. 
+I believe that my 8-year experience in the software industry is an important asset in this application for a CNRS researcher position, mainly because most of what I have done is in the field of graphics and multimedia. In this section, I summarize in chronological order the professional activities that I find most relevant for this application. 
 
 \subsection{January, 1998 -- January, 1999, Z-Movie Studio, Game Development}
 
-My job as a game developer at Z-Movie Studio included the design and development of game logic and 2D and 3D algorithms for educational games. I worked on 2 titles, the first one being a first-person game with an emulated 3D environment, with all the sceneries of city the main character lived projected on the faces of a cube. The idea was that the main character, Lucas, would walk around his city facing different challenges of maths and languages. Each of these challenges was also a small, 2D game on its own. There were games like bow and arrow, word-guessing, and pac-man and river-raid variations. 
+My placement as a game developer at Z-Movie Studio included the design and development of game logic and 2D and 3D algorithms for educational games. I worked on 2 titles, the first one being a first-person game with an emulated 3D environment, with all the sceneries of city in which the main character lived projected on the faces of a cube. The idea was that the main character, Lucas, would walk around his city facing different challenges of maths and languages. Each of these challenges was also a small, 2D game on its own. There were games like bow and arrow, word-guessing, and pac-man and river-raid variations. The had a version for GPU's, using Microsoft Direct 3D \copyright, and another version which emulated the functionality of the GPU, but was entirely software-based. I was responsible for writing the 3D rendering algorithms of the latter.  
 
-The second title was an adaptation of a children's book, ``Pluf, o Fantasminha'', to the gaming sector. My duties in this project included the development the game's 3D engine, with character animation, simple collision detection algorithms, alpha and texture blending. In the game, the player could choose which book character to play and could even voice the character over, in such a way that the player could tell his or her own version of the original story. 
+The second title was an adaptation of a Brazilian children's theatre play to the gaming sector. My duties in this project included the development of the game's 3D engine, with character animation, simple collision detection algorithms, alpha and texture blending, with all the 3D rendering functionality implemented with Microsoft Direct 3D \copyright. In the game, the player could choose which book character to play and could even voice the character over, in such a way that the player could tell his or her own version of the original story. 
 
 \subsection{January, 2001 -- April, 2006, TV Globo, TV Systems}
 
@@ -65,12 +74,14 @@ We were invited to give a talk about the news coverage in the Iraq War during th
 
 \subsubsection{Video Indexing}
 
-Video indexing is the process of building a database of video and audio tracks that can easily be annotated, searched, reviewed, and used in a video editing work flow. The first system of this type on which I worked at TV Globo was to select football match highlights to be re-exhibit during the match's interval. Video loggers watching the match would mark the points they considered interesting. These mark was associated to the corresponding video time code and with a short description indicating what was happening in that specific event. Next, a video editor would make a selection of videos matching a certain criterion, e.g., ``All shots of player Ronaldinho'', or, ``All fights in the match''. The teams, the players, the events, and the match periods were all indexes in the database, which facilitated and speeded-up the database queries. In the first version of this project, the time codes pointed to parts of the video tapes that contained the recorded match. The editing process was then entirely made with tape copies. In the next, tapeless version, video capturing machines were employed, with the matches being recorded in full and low resolution versions. Event logging, selection, and editing were then carried out with the low resolution and the equivalent parts of the full resolution videos were rendered together in a ``flat file'' before being entering broadcasting work flow. I participated in nearly all parts of this project, mainly in the database layer that was the base of all applications. 
+Video indexing is the process of building a database of video and audio tracks that can easily be annotated, searched, reviewed, and used in a video editing work flow. The first system of this type on which I worked at TV Globo was to select football match highlights to be re-exhibited during the match's intervals. Video loggers watching the match would mark the events they considered interesting. These marks were associated to the corresponding video time code and with a short description indicating what was happening in that specific event. Next, a video editor would make a selection of videos matching a certain criterion, e.g., ``All shots of player Ronaldinho'', or, ``All fights in the match''. The teams, the players, the events, and the match periods were all indexes in the database, which facilitated and speeded-up the database queries. In the first version of this project, the time codes pointed to parts of the video tapes that contained the recorded match. The editing process was then entirely made with tape copies. In the next, tapeless version, video capturing machines were employed, with the matches being recorded in full and low resolution versions. Event logging, selection, and editing were then carried out with the low resolution and the equivalent parts of the full resolution videos were rendered together in a ``flat file'' before entering broadcasting work flow. I participated in nearly all parts of this project, mainly in the database layer that was the base of all applications. 
 
 An experimental and much larger version of the tapeless highlights project was developed for the Olympic Games of 2004, in Athens. The overall concept was the same, that is, event logging, selection, and editing in low resolution, final material in full resolution. The biggest challenge this time was to extend the football match principle to all sport modalities of the Olympic Games and to manage an unprecedented (at the time) number of video signals being captured in Rio de Janeiro and in Athens at the same time. In this project, I was the lead designer, developer, and administrator of the database model that controlled the entire video indexing process, besides contributing to other parts of the system. It also gave me the opportunity to work for 2 months in Athens, in the press centre, among those that were managing the on-site production and transmission of the Games to Brazil.
 
-\medskip
-\medskip
+\pagebreak
+
+%\medskip
+%\medskip
 \hrule
 \section{Academic Research}
 \hrule
@@ -81,9 +92,22 @@ The research projects in which I have worked, including my M.Sc. and PhD theses,
 
 \subsection{October, 1996 -- January, 1998, ADDLabs UFF, Virtual Reality}
 
-The Active Document Design Labs (ADDLabs) is a research unit of the Universidade Federal Fluminense specialized in the research and development of applications of artificial intelligence. My role was to develop an experimental, virtual reality module for a system used in the positioning of submerged objects in oil exploitation fields. The first challenge was to render the ocean surface based on its elevation map, using a ray casting algorithm, and to render the polygonal models of the objects placed with the positioning system. The next step was to render the 3D scenes in VR mode. Two approaches were tried, one with VR goggles and another with a VR helmet having head tracking capabilities. The difference between the two was in how the scene was painted. With the goggles, the left and right views needed to be painted in interlaced mode, so that even lines would be rendered on left display and odd lines on the right display. With the helmet, in turn, the two views were painted in progressive mode, each one its own buffer. Despite the interesting results obtained, the module development was unfortunately discontinued after roughly 1,5 years.
+The Active Document Design Labs (ADDLabs) is a research unit of the Universidade Federal Fluminense specialized in the research and development of applications of artificial intelligence. My role was to develop an experimental, virtual reality module for a system used in the positioning of submerged objects in oil exploitation fields. The first challenge was to render the ocean surface based on its elevation map, using a ray casting algorithm, and to render the polygonal models of the objects placed with the positioning system. The next step was to render the 3D scenes in VR mode. Two approaches were tried, one with VR goggles and another with a VR helmet having head tracking capabilities. The difference between the two was in how the scene was painted. With the goggles, the left and right views needed to be painted in interlaced mode, so that even lines would be rendered on the left display and odd lines on the right display. With the helmet, in turn, the two views were painted in progressive mode, each one in its own buffer. Despite the interesting results obtained, the module development was unfortunately discontinued after roughly 1,5 years.
 
 \subsection{January, 1998 -- May, 2001, UFRJ, M.Sc. Thesis}
+
+The inversion of electroencephalograms and magnetoencephalograms is an important problem in the understanding brain activity. By solving partial differential equations, we obtain the electromagnetic activity of the entire brain from the signals captured at discrete points. To solve the equations, a geometric domain that represents the patient's head is necessary. Previous work employed generic spherical models of the head to solve the inversion problem, for which an analytical solution is available. For patient-specific geometry, the problem can be solved numerically with the boundary elements method, but triangular meshes representing the scalp, the skull, and the brain are necessary.
+
+In my M.Sc. thesis, I implemented an integrated solution for the problem of reconstructing patient-specific 3D models of the head from magnetic resonance images. From the contours obtained in an image segmentation stage, the surfaces of the scalp, the skull, and the brain are triangulated by using the technique introduced by Boissonnat, through which a B-Rep model of each of the desired surfaces is built from a sequence of planar contours. 
+
+\subsubsection{Segmentation}
+
+The first step to obtain the desired surfaces is to segment them in, e.g., magnetic resonance images, which give good contrast between the tissues to be segmented. In my thesis, the proposed segmentation process was semi-automatic, on a slice-by-slice basis. Operations such as thresholding, region growing, thinning, and edge tracking were used to obtain the contours of the surfaces on each slice. Research on 3D segmentation algorithms existed, but my focus was more on the triangulation process and on the integration between segmentation and triangulation, which was relatively new at the time.
+
+\subsubsection{Triangulation}
+
+Boissonnat proposed a method to triangulate surfaces from a set of points laid out on sequential, parallel planes. This is exactly the setting obtained after the segmentation process above. The algorithm employs the Delaunay triangulation to obtain smooth surfaces, whose interior is also triangulated, in such a way the entire volume is described by tetrahedra. My intention, however, was to have B-Rep's only, since the result surface was meant to be used as mesh of boundary elements methods. The Marching Cubes algorithm was already available at the time, but on the one hand it depends on images with excellent contrast, so that the implicit surfaces can be correctly reconstructed. On the other hand, the triangles obtained may be very irregular. The Delaunay triangulation regularizes the triangle shapes, by maximizing their areas, for which reason the method by Boissonnat was chosen. My contribution to this method was the addition of a pruning phase to remove the internal triangles. In other words, only the triangles lying on the external boundary of the surfaces were kept in the final result.
+
 
 \subsection{October, 2001 -- May, 2003, LAMEC UFRJ, Geometric Modelling}
 
@@ -180,7 +204,7 @@ All 4D CT images acquired at the hospital are automatically sent to a workstatio
 
 Patient-specific validation is performed using VV (http://vv.creatis.insa-lyon.fr/), our in-house software for the visualization of 4D CT images, which has also been integrated into the clinical workflow. The validation consists mainly in warping the 4D CT image towards the time-averaged position using the outcome of 4D DIR and verifying that there is no significant residual motion. The MidP image is also overlaid on the original 4D CT image so that motion relative to the MidP can be verified as well.
 
-This project is a partnership between the Centre L\'eon B\'erard, CREATIS, and Elekta. My role is to implement the tools that will allow the algorithms for registration and visualization to be used in the clinic. I am also responsible for maintaining and improving the existing algorithms and for proposing new ones.
+This project is a partnership between the Centre L\'eon B\'erard, CREATIS, and Elekta. My role includes the conception,  implementation, clinical validation, and deployment of registration and visualization algorithms and the tools that will allow these algorithms to be used in the clinic. 
 
 \renewcommand{\refname}{Related publications}
 \begin{bibunit}[unsrt]
