@@ -3,24 +3,57 @@ latex = pdflatex
 
 pics := flow.pic
 
-pdf : dvi
+all : project work cv
+
+############### PROJECT
+project : project_dvi
 	#dvips project.dvi
 	#ps2pdf project.ps
 	
-dvi : bbl  
+project_dvi : project_bbl  
 	$(latex) project.tex
 	
 $(pics) : %.pic : %.flo
 	flow  $< $@
 
-bbl : 
+project_bbl : 
 	# generate .aux
 	$(latex) project.tex
 	# generate .bbl
 	bibtex project
-	
-view : pdf
-	$(pdfviewer) project.pdf &
+
+############### WORK
+work : work_dvi
+
+work_dvi : work_bbl
+	$(latex) work.tex
+
+work_bbl :
+	$(latex) work.tex
+	bibtex bu1
+	bibtex bu2
+	bibtex bu3
+	bibtex bu4
+
+############### CV
+cv : cv_dvi
+
+cv_dvi : cv_bbl
+	cd cv; \
+	$(latex) cv2.tex; \
+	cd ..
+
+cv_bbl :
+	cd cv; \
+	$(latex) cv2.tex; \
+	bibtex bu1; \
+	bibtex bu2; \
+	bibtex bu3; \
+	bibtex bu4; \
+	cd ..
+
+view : all
+	$(pdfviewer) project.pdf work.pdf cv/cv2.pdf &
 	
 clean :
 	rm *.pic *.aux *.bbl *.blg *.log *.dvi *.ps  *.pdf *.out
