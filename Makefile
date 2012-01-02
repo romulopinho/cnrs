@@ -1,4 +1,4 @@
-pdfviewer = okular
+pdfviewer = evince
 latex = pdflatex
 
 pics := flow.pic
