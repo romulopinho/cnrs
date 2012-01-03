@@ -8,9 +8,14 @@
 \usepackage{graphicx}
 \usepackage{pdfpages}
 
+\newcommand{\fixedland}{{\it Fixed Landmarks}}
+\newcommand{\challenge}{\paragraph{Challenge}}
+\newcommand{\method}{\paragraph{Method}}
+\newcommand{\approach}{\paragraph{Approach}}
 
-\title{Automatic Assessment and Stenting of Arterial Stenosis}
-\author{Concours CNRS 2012 -- Projet de Recherche}
+
+\title{Automatic Assessment and Stenting of\\Arterial Stenoses and Aneurysms}
+\author{Concours CNRS 2012 -- Section 7\\Projet de Recherche}
 \date{R\^omulo TEIXEIRA DE ABREU PINHO}
 
 \begin{document}
@@ -41,18 +46,22 @@ Atherosclerosis figures as one of the leading cardiovascular diseases, which rem
 \medskip
 \medskip
 
-Atherosclerosis figures as one of the leading cardiovascular diseases, which remain as the major cause of death in developed countries. Concomitantly, the use of images plays a very important role in the diagnosis, treatment, and follow up of vascular diseases. Likewise, minimally invasive interventions are becoming more available and are the preferred treatment option given the reduced surgical risk to the patient. The treatment of atherosclerosis (stenosis and aneurysms) using stents is a very good example that profits from both the use of images and minimally invasive interventions. 
+Atherosclerosis, or the hardening of arteries, occurs when substances such as fat and cholesterol accumulate in the walls of arteries, forming plaques. These plaques may block the arteries and cause stenoses (artery narrowing) and aneurysms (weakening and swelling of the arterial wall). Such conditions may lead to severe consequences, for example heart attacks, strokes, and the rupture of the arterial wall, all of them life threatening \citep{Gennest,Libby}. Atherosclerosis figures as one of the leading cardiovascular diseases, which remain as the major cause of death according to the \citet{WHO}. 
 
-A large variety of stents is available in the market. However, choosing the correct stent parameters (type, length, diameter, and deployment location) is challenging and remains a specialist-dependent and subjective task, which is mostly based on the expertise of the physician in charge. This problem attracts large attention and an event to compare the results of existing algorithms to aid in the detection and quantification of coronary stenoses will soon be organized (http://coronary.bigr.nl/stenoses).
+Concomitantly, the use of images plays a very important role in the diagnosis, treatment, and follow up of vascular diseases. Likewise, minimally invasive interventions are becoming more available and are the preferred treatment option given the reduced surgical risk to the patient. The treatment of atherosclerosis using stents is a very good example that profits from both the use of images and minimally invasive interventions. 
 
-In my PhD thesis, I showed that the choice of stents for the treatment of tracheal stenosis can be automated and simplified with the use of statistical shape models. The proposed method solves the problem of automatically determining the location of the stricture, its length, and the degree of narrowing by giving an estimation of the patient's healthy trachea, that is, if stenosis were not present. From this estimation, followed by a segmentation of the narrowed trachea, determining the parameters of the stenosis and consequently of the patient-specific stent is straightforward. 
+A large variety of stents is available in the market. However, choosing the correct stent parameters (type, length, diameter, and deployment location) is challenging and remains a specialist-dependent and subjective task, which is mostly based on the expertise of the physician in charge. This problem attracts large attention. The multi-centre, EU-project THROMBUS\footnote{http://www.thrombus-vph.eu/}, for instance, is an attempt to understand the formation of thrombosis in cerebral aneurysms after stent implants, in order to improve stent design, choice, and deployment. An event to compare the results of existing algorithms to aid in the detection and quantification of coronary stenoses will also soon be organized\footnote{http://coronary.bigr.nl/stenoses}.
 
-Despite being a natural extension of my thesis, applying the method proposed for the trachea to the case of arterial stenosis and aneurysm is far from trivial. Many challenges exist, first and foremost the automatic segmentation and labelling of the arterial tree, which remains an open problem. Additionally, in order to optimize the stent choice, several parameters need to be taken into account, such as the physical properties of the arterial wall and of the stents themselves and the estimation of the blood flow after deploying the stent. 
+In my PhD thesis, I showed that the choice of stents for the treatment of tracheal stenosis can be automated and simplified with the use of active shape models (ASM) \citep{Cootes}. The proposed method solves the problem of automatically determining the location of the stricture, its length, and the degree of narrowing by giving an estimation of the patient's healthy trachea, that is, if stenosis were not present. From this estimation, followed by a segmentation of the narrowed trachea, determining the parameters of the stenosis and consequently of the patient-specific stent becomes a straightforward task. 
 
-I intend to study and solve these problems and to apply the solutions in the clinical domain. In order to achieve it, I would like to be part of the {\it Centre de Recherche Et d’Applications en Traitement de l’Image et du Signal} (CREATIS), whose expertise in the domain of segmentation of images of the vascular system and the use of stents in the treatment of arterial stenoses and aneurysms will be an invaluable contribution to the project.
+Despite being a natural extension of my thesis, applying the method proposed for the trachea to the case of arterial stenosis and aneurysm is far from trivial. Many challenges exist when trying to use ASMs in the cardiovascular domain. First and foremost, to build the model, it is necessary to segment and establish correspondences between shapes representing the arterial tree. The automatic segmentation and labelling of the arterial tree remains an open problem \citep{ORKI-08}. Additionally, in order to optimize the stent choice, several parameters need to be taken into account, such as the physical properties of the arterial wall and of the stents themselves and the estimation of the blood flow after deploying the stent. To the best of my knowledge, such parameters have only been studied in post-stent-deployment scenarios or in simulations, but have never been integrated in an automatic stent choice process, especially one based on ASMs. 
+
+This project therefore aims at studying and solving the problems above and at applying the solutions in the clinical domain. In order to achieve it, I would like to be part of the {\it Centre de Recherche Et d'Applications en Traitement de l'Image et du Signal} (CREATIS), whose expertise in the domain of segmentation of images of the vascular system and in the use of stents in the treatment of arterial stenoses and aneurysms will be an invaluable contribution.
 
 \medskip
 \medskip
+
+\pagebreak
 
 \hrule
 \section{Project Description}
@@ -61,14 +70,19 @@ I intend to study and solve these problems and to apply the solutions in the cli
 \medskip
 \medskip
 
-The objective of the proposed project is to develop a solution for the problem of automatic stent choice in the treatment of vascular stenoses and aneurysms. To date, such problem has only been solved with semi-automatic methods, with a very subjective aspect, which is the determination of the healthy arterial diameter and the extension of the stenosis or the aneurysm. My goal is to improve this solution with an automatic process that optimizes the choice of stent type, length and diameter. In the following, I present the main challenges involved in the project and how I intend to solve them. 
+The objective of the proposed project is to develop a solution for the problem of automatic stent choice in the treatment of vascular stenoses and aneurysms. To date, such problem has only been solved with semi-automatic methods, with a very subjective aspect, which is the determination of the healthy arterial diameter and the extension of the stenosis or the aneurysm. My goal is to improve this solution with an automatic process that optimizes the choice of stent type, length and diameter. The following sections present the main challenges involved in the project, the existing methods to solve them, if any, and the approaches to be adopted when using or extending these methods. 
 
 \subsection{Estimation of Healthy Arteries}
 
-In my PhD thesis, I proposed a method for the estimation of healthy tracheae from CT images of patients suffering from tracheal stenosis. This method is based on the construction of a statistical model \citep{Cootes} of 3D surfaces of healthy tracheae. When the model is registered to a CT scan of a patient with tracheal stenosis, it is capable of matching the parts of the tracheal wall that are healthy while at the same time estimating the shape of the remaining parts as if they were healthy. This method showed very promising results \citep{Pinho:Trachea4}.
+\challenge
+When assessing arterial stenoses or aneurysms, physicians tend to pick healthy regions around the affected area in order to quantify the parameters of the deformation (extension, severity). These healthy regions in fact act as an estimation of the artery if it were completely healthy. To date, despite some interesting work in the literature \citep{Bemmel,Scherl200721,Gremse01092011}, this step is still semi-automatic. 
 
-A natural extension of my thesis is the application of the proposed method in the cardiovascular domain. Since arteries, as well as tracheae, are objects of tubular topology, and the characteristics of their stenoses are roughly the same, it is intuitive to believe that the method will also be able to estimate the shape of healthy arteries from images of patients with arterial stenosis. This rule also tends to apply in the case of aneurysms, as long as there are enough healthy regions around the location of the swelling.
+\method
+In my PhD thesis, I proposed a method for the estimation of healthy tracheae from CT images of patients suffering from tracheal stenosis. This method is based on the construction of an active shape model (ASM) \citep{Cootes} of 3D surfaces of healthy tracheae allied with a new model fitting algorithm, called \fixedland. When the model is registered to a CT scan of a patient with tracheal stenosis, it is capable of matching the parts of the tracheal wall that are healthy while at the same time estimating the shape of the remaining parts as if they were healthy. The \fixedland algorithm is responsible for avoiding the narrowed parts of the patient's trachea, enabling the statistical model to generate a plausible healthy tracheal shape \citep{Pinho:Trachea4}.
 
+A natural extension of the work above is the application of the proposed ASM in the cardiovascular domain. Since arteries, as well as tracheae, are objects of tubular topology, and the characteristics of their stenoses are roughly the same, it is intuitive to believe that the method will also be able to estimate the shape of healthy arteries from images of patients with arterial stenosis. This rule also tends to apply in the case of aneurysms, as long as there are enough healthy regions around the location of the swelling.
+
+\approach
 I will adapt the method I proposed for tracheal stenosis so that it can be used with narrowed and swelled arteries. I believe that in the first instance, the method developed for the trachea can be used as is. I will build a training set of healthy artery sections using segmentation methods available in the literature, for example \citep{Florez2}. In this way, the problem is reduced to modelling objects of tubular shape, without bifurcations, resembling the case of the trachea. Since healthy artery sections tend to appear with good contrast in the images, their segmentation is in principle a relatively straightforward task. 
 
 The main difficulty lies in the segmentation of the arterial tree and the corresponding surface representation to be used in the statistical model. To the best of my knowledge, statistical shape models of tree-like structures have not been proposed yet. In the next phase of the project, I intend to employ existing surface representation methods \citep{Florez, Antiga} and benefit from its branch nomenclature in order to establish correspondences between the shapes of the statistical model's training set, which is an important step in the model construction. 
@@ -79,7 +93,12 @@ The segmentation of the arterial tree has been a topic of study for quite some t
 
 \subsubsection{Healthy Arteries}
 
-This segmentation problem has much in common with the segmentation of airway tree, for which I also proposed an automatic solution in my PhD thesis, with interesting results \citep{Pinho:Airways2}. The method uses an iterative region growing algorithm with adaptive, cylindrical ROI's that simplifies the detection and elimination of leaks, a common problem in region growing. The method also includes an initialization step to automatically detect the starting point of the trachea, which is given as a seed point to the region growing algorithm (Figure \ref{fig:airways}). 
+\challenge
+
+The segmentation of the healthy arterial tree is an important step in the construction of the statistical shape model. 
+
+\method
+This segmentation problem has much in common with the segmentation of airway tree, for which I also proposed an automatic solution in my PhD thesis, with interesting results \citep{Pinho:Airways2}. The method uses an iterative region growing algorithm with adaptive, cylindrical ROIs that simplifies the detection and elimination of leaks, a common problem in region growing. The method also includes an initialization step to automatically detect the starting point of the trachea, which is given as a seed point to the region growing algorithm (Figure \ref{fig:airways}). 
 
 \begin{figure}%
 \centering
@@ -88,13 +107,20 @@ This segmentation problem has much in common with the segmentation of airway tre
 \label{fig:airways}%
 \end{figure}
 
+\approach
+
 My intention is to apply this method to the segmentation of healthy arteries and to compare it with other segmentation methods \citep{Florez2, Antiga}. A challenge in this case will be the detection of a starting point for the segmentation. Tube enhancement filters \citep{ORLO-09} may help in at least isolating the tubular structures in the image, from where  the detection process may be triggered. 
 
 \subsubsection{Narrowed Arteries}
 \label{sec:narrowedarteries}
 
-The segmentation of the healthy arterial tree is an important step in the construction of the statistical shape model. But similarly to tracheal stenoses, segmenting the narrowed arteries is an important step in the automatic calculation of parameters of the stricture. My experience with the segmentation of the trachea, however, has demonstrated that the segmentation of narrowed tube-like structures in medical images may be difficult. Region growing, for example, tends to fail to recover the correct tube wall if the narrowing is too severe and the lumen is not completely visible in the image. In my thesis, I used the estimation of the healthy trachea as initialization of the a deformable model to segment the narrowed tube. The proposed deformable model, based on the snake model proposed by \cite{Kass}, was able to correctly segment the tracheal wall even in the more difficult cases. Still, noise and the presence of neighbouring organs may hinder the segmentation process, and user intervention may still be necessary \citep{Pinho:Trachea7}.
+\challenge
+Similarly to the case of tracheal stenoses, segmenting the narrowed arteries is an important step in the automatic calculation of parameters of the arterial stricture. My experience with the segmentation of the trachea, however, has demonstrated that the segmentation of narrowed tube-like structures in medical images may be difficult. Region growing, for example, tends to fail to recover the correct tube wall if the narrowing is too severe and the lumen is not completely visible in the image. 
 
+\method 
+In my thesis, I used the estimation of the healthy trachea as initialization of the a deformable model to segment the narrowed tube. The proposed deformable model, based on the snake model proposed by \cite{Kass}, was able to correctly segment the tracheal wall even in the more difficult cases. Still, noise and the presence of neighbouring organs may hinder the segmentation process, and user intervention may still be necessary \citep{Pinho:Trachea7}.
+
+\approach
 I will thus experiment with the deformable model I proposed in my thesis in order to automatically segment narrowed arteries. The idea will still be to initialize the model with the estimation of the healthy artery obtained with the statistical shape model. I expect that this method will give better results then other solutions in the literature \citep{CARR-07,Florez2,Antiga,Bemmel}, but an in-depth comparison with those algorithms will be necessary.
 
 \subsection{Stent Choice}
@@ -107,18 +133,22 @@ For this reason, I will add to the stent prediction parameters derived from the 
 
 \subsubsection{Extending the Statistical Shape Model}
 
+\challenge
 When the statistical model of healthy arteries is registered to an image of a patient with atherosclerosis, the registration (as implemented in my PhD thesis) is an iterative, edge-based search. At each iteration, the new locations of the landmarks that describe the surface of the artery are determined and a least squares minimization process makes the shape generated by the statistical model fit to the new point locations. Since the model is constrained by the (healthy) shape information contained in it, the resulting surface will resemble a healthy artery.
 
 A ``healthy artery'' in this context means that only the geometrical variation about the arteries is captured by the statistical model. Still, arteries have physical properties such as elasticity, malleability, and bending, that are not explicitly encoded in the model. At the best, the geometric information may implicitly contain some aspects of the referred properties. 
 
+\approach
 I will then study the physical properties of arteries in order to add such information to the shape model. As a result, when registering the model to the patient's image these properties will further constrain the deformation and I expect that they will help giving a better estimation of the healthy arterial shape. 
 
 In the same way, I will further extend the model with the physical properties of the stents. Since the ultimate objective of the project is the prediction of stents, it is reasonable that their physical properties be an extra parameter in the construction of the statistical model. Consequently, when registering the model to the patient's image, not only will the properties of the artery play a role, but we will at the same time influence the estimation of the healthy artery with the properties of the stent. 
 
 \subsubsection{Physically-based Segmentation of the Deformed Artery}
 
+\challenge
 In the same way that the statistical shape model can be extended, so can be the segmentation of narrowed and swelled arteries. Originally, the snake model proposed by \citet{Kass} depends on internal and external energies to deform the surface (or contour) towards the desired image feature. The internal energies take only elasticity and bending into account. 
 
+\approach
 I will add extra energy terms with arteries' physical properties in order to restrict (or improve) the surface deformations, so that the model can better adapt to the arteries' boundaries. Such physical properties must also take into account those of narrowed and swelled regions, since the main object of this segmentation step is to correctly segment them.
 
 \subsubsection{Simulations}
@@ -127,15 +157,19 @@ As stated previously, when the estimated healthy arterial shape and the segmente
 
 \paragraph{Stent Deployment}
 
+\method
 \citet{Florez,deBeule} proposed methods for stent deployment simulations using deformable models and numerical methods. With these methods, it is possible to (visually) verify whether the predicted stent properly expands the narrowed region of the artery or whether it correctly bypasses the swelled region. 
 
-My idea is to find a way to methodologically quantify these parameters, by using the stents' and arteries' physical properties, and to have measures for, e.g., arterial wall straining, stenosis/aneurysm coverage, stent deformation, etc. These parameters can be further added to the statistical shape model to improve the healthy shape estimation. Consequently, the model registration will tend to yield a shape with the best characteristics in terms of the stent vs. wall interaction as well.
+\approach
+The idea is to find a way to methodologically quantify these parameters, by using the stents' and arteries' physical properties, and to have measures for, e.g., arterial wall straining, stenosis/aneurysm coverage, stent deformation, etc. These parameters can be further added to the statistical shape model to improve the healthy shape estimation. Consequently, the model registration will tend to yield a shape with the best characteristics in terms of the stent vs. wall interaction as well.
 
 \paragraph{Blood Flow}
 
+\challenge
 Blood flow simulations already play an important role in stent design \citep{deBeule}. They are also extensively used for flow assessment after stent deployment \citep{Vuk,Gori}. However, to the best of my knowledge, such simulations have not yet been integrated in the stent choice process. 
 
-To achieve such integration, my plan is to define a function of the blood flow subject to the stent parameters (physical properties, deployment location, length, and diameter). This function will then be maximized, such that the chosen stent is the optimal one for a certain patient. This optimization process will thus influence the entire workflow, from the estimation of the healthy arterial shape, passing through the segmentation of the narrowed/swelled artery, to the detection and quantification of the stenosis/aneurysm, and the final prediction of the stent parameters. In fact, I imagine an algorithm that implements the workflow depicted in Figure \ref{fig:workflow}. 
+\approach
+To achieve such integration, the plan is to define a function of the blood flow subject to the stent parameters (physical properties, deployment location, length, and diameter). This function will then be maximized, such that the chosen stent is the optimal one for a certain patient. This optimization process will thus influence the entire workflow, from the estimation of the healthy arterial shape, passing through the segmentation of the narrowed/swelled artery, to the detection and quantification of the stenosis/aneurysm, and the final prediction of the stent parameters. In fact, I imagine an algorithm that implements the workflow depicted in Figure \ref{fig:workflow}. 
 
 
 \begin{figure}%
@@ -147,19 +181,22 @@ To achieve such integration, my plan is to define a function of the blood flow s
 
 \subsection{GPU Acceleration}
 
-In order to achieve the expected results with the proposed methods, a lot of computational power may be necessary. The blood simulations, for instance, require a large number of calculations. The proposed optimization process, as well, is a classic case study for the use of clusters and grids. I envision the use of such architectures, but bringing this computing power to the clinic is impractical and expensive. A more viable, yet powerful, solution is thus necessary.
+\challenge
+In order to achieve the expected results with the proposed methods, a lot of computational power may be necessary. The blood simulations, for instance, require a large number of calculations. The proposed optimization process, as well, is a classic case study for the use of clusters and grids. I envision the use of such architectures, but bringing them to the clinic is impractical and expensive. A more viable, yet powerful, solution is thus necessary.
 
-The FASTRA technology is a successful attempt of building a desktop supercomputer using multiple GPU's. At the cost of a couple of high-end desktop computers, this technology yields computing power comparable to more than 256 CPU's working together, with proper GPU programming (http://fastra.ua.ac.be/en/index.html).
+The FASTRA\footnote{http://fastra.ua.ac.be/en/index.html} technology is a successful attempt of building a desktop supercomputer using multiple GPUs. At the cost of a couple of high-end desktop computers, this technology yields computing power comparable to more than 256 CPUs working together, with proper GPU programming.
 
 In GPU programming, however, memory transfers between the computer's main memory and the GPU may impose a severe bottleneck. Given the reduced memory size in graphics cards, relative to available RAM sizes, and the increasing size of medical image files, image buffers cannot be completely allocated in GPU memory. As a consequence, a smart memory transfer scheme must be devised. 
 
-In my PhD thesis, I dealt with a similar problem, but in a different scale. Since image processing pipelines may require several simultaneous copies of the image buffer, current available RAM's may not be large enough. I therefore proposed an out-of-core solution for image processing based on sliding window cache and pre-fetching techniques. In other words, only the parts of the image that are necessary in a given moment reside in main memory. The other parts remain in disk. Using a-priori knowledge about the image traversal pattern of image processing algorithms, it is possible to predict which regions of the image will be needed in the future. These images can be asynchronously fetched from disk and stored in a cache before being requested by the algorithm. If the I/O operation is fast enough, it is very likely that the algorithm will not have to wait for the request complete \citep{Pinho:Cache1}. 
+\method
+In my PhD thesis, I dealt with a similar problem, but in a different scale. Since image processing pipelines may require several simultaneous copies of the image buffer, current available RAMs may not be large enough. I therefore proposed an out-of-core solution for image processing based on sliding window cache and pre-fetching techniques. In other words, only the parts of the image that are necessary in a given moment reside in main memory. The other parts remain in disk. Using a-priori knowledge about the image traversal pattern of image processing algorithms, it is possible to predict which regions of the image will be needed in the future. These images can be asynchronously fetched from disk and stored in a cache before being requested by the algorithm. If the I/O operation is fast enough, it is very likely that the algorithm will not have to wait for the request complete \citep{Pinho:Cache1}. 
 
-I believe that such an approach can similarly be applied in transfers between the computer's main memory and the GPU. I will then adapt the cache and pre-fetching method I proposed in my thesis and translate it to GPU-specific code. In this way, I expect that the stent choice optimization can be made without the need of the cluster structure.
+\approach
+The method above can similarly be applied in transfers between the computer's main memory and the GPU. I will then adapt the cache and pre-fetching method and translate it to GPU-specific code. In this way, it is expected that the stent choice optimization can be made without the need of the cluster structure.
 
 \medskip
 \medskip
-
+\pagebreak
 \hrule
 \section{Integration in the Laboratory, Collaborations, Schedule}
 \hrule
@@ -169,19 +206,19 @@ I believe that such an approach can similarly be applied in transfers between th
 
 \subsection{Laboratory}
 
-My intention of joining the CREATIS group is on the one hand to benefit from their expertise in the several areas correlated to this project proposal. On the other hand, it will be my role to contribute to this expertise by bringing to the lab my own experience with the assessment and stenting of tracheal stenosis and applying it to the cardiovascular domain.
+My intention of joining the CREATIS group is on the one hand to benefit from their expertise in the several areas correlated to this project proposal. In particular, CREATIS is a partner of the multi-centre, EU-project THROMBUS, which focus on the improvement of stent choices in the treatment of cerebral aneurysms. In addition, the group has large experience in the domain of segmentation the cardiovascular system and in the simulation of stent deployment. On the other hand, it will be my role to contribute to group's expertise by bringing to the lab my own experience with the assessment and stenting of tracheal stenosis and applying it to the cardiovascular domain.
 
-CREATIS have at their disposal an internal computer cluster and also the computation power of the {\it Centre de Calcul de L'Institut National de Physique Nucl\'eaire et de Physique des Particules} (CC-IN2P3). These will be invaluable tools for the simulation parts of the proposed project. 
+CREATIS also have at their disposal an internal computer cluster and also the computation power of the {\it Centre de Calcul de L'Institut National de Physique Nucl\'eaire et de Physique des Particules} (CC-IN2P3). These will be invaluable tools for the simulation parts of the proposed project. 
 
 Most importantly, CREATIS also profit from a very multidisciplinary nature and strong links with the clinical practice, most notably that of the {\it h\^opital neuro-cardiologique des Hospices Civiles de Lyon} (HCL) and of the {\it Centre L\'eon B\'erard} (CLB). This will give me the opportunity to evaluate the results of the proposed project with real patient data and to have immediate feedback from physicians. 
 
 \subsection{Collaborations}
 
-During my PhD in Belgium, I established a very good relationship with Prof. Dr. Jan Sijbers, my thesis supervisor, in the VisionLab group of the University of Antwerp. The group has extensive experience with medical image segmentation problems and modelling of cylindrical objects, which could be interesting in the context of this project. In addition, this is the group where the FASTRA technology was developed and the group is always interested in new applications for it. I would like to bring the VisionLab and CREATIS together during the course of the proposed project, so that they can benefit from each other's work.
+During my PhD in Belgium, I established a very good relationship with Prof. Dr. Jan Sijbers, my thesis supervisor, in the VisionLab group of the University of Antwerp. The group has extensive experience with medical image segmentation problems and modelling of cylindrical objects, which could be interesting in the context of this project. In addition, this is the group where the FASTRA technology was developed and they are always interested in new applications for it. I would like to bring the VisionLab and CREATIS together during the course of the proposed project, so that they can benefit from each other's work.
 
-My stay in Belgium also allowed me to get acquainted with the work of the Stent Research Unit of the University of Ghent. Their work is focussed on the design of stents using numerical simulations, on which much of this project may be based. 
+My stay in Belgium also allowed me to get acquainted with the work of the Stent Research Unit of the University of Ghent. Since their work is focussed on the design of stents using numerical simulations, on which much of this project may be based, it is a potential collaboration opportunity. 
 
-I also envision collaborations with the academic and industrial partners of the European Project THROMBUS, whose aim is to evaluate the efficacy of the use of stents in neurological aneurysms. These partners, among them CREATIS, combine expertise in different areas and will certainly be a good source of information for my project.
+I also envision collaborations with the academic and industrial partners of the European Project THROMBUS, whose aim is to evaluate the efficacy of the use of stents in neurological aneurysms. These partners, among them CREATIS, combine expertise in different areas and will certainly be a good source of information for this project.
 
 Lastly, an opportunity will be open from early 2014, with the first calls for the UE project ``Horizon 2020''. This will probably be a good chance to join partners such as those in the THROMBUS project or establish new partnerships. 
 
@@ -226,18 +263,22 @@ Finally, the remaining 24 months will be dedicated to the stent choice and simul
 
 \begin{center}
 \begin{tabular}{r c l}
-Dr. David Sarrut & -- & CNRS Researcher at CREATIS and at the Centre L\'eon B\'erard, France\\
+Dr. Isabelle Magnin & -- & Research Director at INSERM, CREATIS, France\\
 \\
-Prof. Dr. Jan Sijbers & -- & Associate Professor at the Universiteit Antwerpen, Belgium \\
+Dr. David Sarrut & -- & CNRS Researcher at CREATIS, Centre L\'eon B\'erard, France\\
+\\
+Prof. Dr. Jan Sijbers & -- & Associated Professor at the Universiteit Antwerpen, Belgium \\
 \\
 Mr. Silvio Pereira & -- & R\&D Manager at TV Globo Ltda., Brazil \\
 \\
-Mr. Jo\~ao Amaral & -- & Technical Leader at APPI Technology, Brazil \\
+Mr. Jo\~ao Amaral & -- & Former Technical Director and Partner at Z-Movie Studio, Brazil \\
 \end{tabular}
 \end{center}
 \vfill
 
+\includepdf[pages={1}]{david.pdf}
 \includepdf[pages={1}]{jan.pdf}
+\includepdf[pages={1}]{joao.pdf}
 
 %\section{Conclusions}
 
