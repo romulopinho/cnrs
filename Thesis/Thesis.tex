@@ -1,0 +1,32 @@
+\documentclass[b5paper,11pt]{mythesis}
+
+\begin{document}
+
+\graphicspath{{FrontPage/logos/}}
+\include{FrontPage/FrontPage}
+
+\pagestyle{fancy}
+\setlength{\headheight}{13.6pt}
+\renewcommand{\chaptermark}[1]{\markboth{#1}{}}
+\renewcommand{\sectionmark}[1]{\markright{}}
+\fancyhf{}
+\fancyhead[LE,RO]{}
+\fancyhead[LO,RE]{\itshape\bfseries\rightmark}
+\fancypagestyle{plain}{%
+\fancyhead{} % get rid of headers
+\renewcommand{\headrulewidth}{0pt} % and the line
+}
+
+\include{Backcover}
+
+\pagenumbering{roman}
+\setcounter{page}{1}
+\fancyhead[LE,RO]{\bfseries\thepage}
+
+\fancyhead[LO,RE]{}
+
+\include{Abstract}
+
+
+\end{document}
+

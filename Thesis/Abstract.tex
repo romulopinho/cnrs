@@ -1,0 +1,32 @@
+\chapter*{Summary}
+\addcontentsline{toc}{chapter}{Summary}
+
+Tracheal stenosis is an unnatural narrowing of the trachea that, despite being relatively rare, can be life threatening. Possible choices of treatment include surgery and the use of stents. Whichever approach is taken, an important diagnostic step is the correct assessment of the stricture to determine the point where it starts, where it ends, and the degree of narrowing. Such assessment is to date very operator dependent and despite advances in the imaging and computing fields, it remains mostly a manual operation.
+
+\medskip
+
+This thesis sets forth a decision support system that proposes a method for automatic assessment of tracheal stenosis and prediction of stent length and diameter from chest CT scans. The main idea behind the proposed method is to estimate the shape of the trachea of a patient as if stenosis were not present. This shape can be used the by the physician for surgery planning and is the basis for the automatic assessment of the stenosis and the prediction of patient-specific stents. 
+
+\medskip
+
+Several challenges were solved in order to achieve the system's goal. The first was how to efficiently manipulate large medical image files. With current technology, CT scans of the chest can generate files whose sizes are in the order of gigabytes. When these files need to be manipulated in current desktop computers, memory restrictions often arise. This thesis proposes an \outcore\ image processing technique that keeps only parts of the large file in memory. Such technique, named \wincache, employs a cache and prefetching strategy that optimizes the file traversal using a priori knowledge about the data access pattern of the image processing algorithm.
+
+\medskip
+
+The second challenge was the automatic segmentation of healthy tracheas from the CT images, an important pre-preprocessing step of the proposed method. More than solving this problem, this thesis presents a method for the segmentation of the entire airway tree, which comprises the trachea and bronchi. The proposed method, based on region growing, automatically identifies the start and end of the trachea and introduces a new technique to avoid the appearance of leaks in the segmentation, which is a classical problem of region growing.
+
+\medskip
+
+The estimation of the patient's healthy trachea is achieved thanks to the construction of a statistical shape model of healthy tracheas. Such a model captures the geometric variation present in a training set of shapes and is capable of generating new shape instances that are constrained by the acquired variation. In other words, the model proposed here can only generate healthy tracheas. The objective is then to register this model to the CT image of a patient with tracheal stenosis. Although the shape resulting from the registration never contains local geometric distortions typical of stenosis, the narrowed areas of the patient's trachea can globally influence the registration algorithm. This thesis further proposes a new registration method called \fixedland\ to more robustly avoid these narrowed areas and generate a plausible estimation of the patient's healthy trachea.
+
+\medskip
+
+In the following step, the proposed system automatically segments the narrowed trachea from the image, using the estimated healthy trachea as the starting point. The segmentation is based on the classic Active Contour Model (or Snakes), with internal and external forces tailored for the task. The obtained healthy and the narrowed versions of the trachea are finally used in an automatic procedure that computes the parameters of the stenosis (start, end, degree of narrowing) and uses these parameters to predict the length and diameter of a stent to be used in that patient. 
+
+\medskip
+
+Extensive sets of experiments were carried out to validate all proposed methods. For the \outcore\ technique, different algorithms and cache structures were tested on large files. The airway segmentation method was tested on a database of 40 image volumes, subdivided into training and testing sets. For the statistical shape model, 38 healthy tracheas were used, corresponding to a considerable amount of shape variation. Finally, the assessment of stenoses and the prediction of stents were validated with a large set of simulation experiments and with a retrospective study with 11 CT scans of 9 patients. The results showed that the proposed system effectively reduces the observed operator dependency in the assessment of tracheal stenosis and that it is fast and accurate enough to be used in the clinical setting.
+
+
+
+
