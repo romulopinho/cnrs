@@ -15,7 +15,7 @@
 
 \title{Image Analysis and Modelling of the Vascular Tree:\\Application to the Automatic Quantification of\\Vascular Stenoses and Aneurysms and the\\Choice of Patient-specific Stents}
 \author{Concours CNRS 2012 -- Section 7\\Projet de Recherche}
-\date{R\^omulo TEIXEIRA DE ABREU PINHO}
+\date{R\^omulo (TEIXEIRA DE ABREU) PINHO}
 
 \begin{document}
 
@@ -176,16 +176,16 @@ To achieve the integration of blood flow simulation with the stent choice, the p
 \subsection{GPU Acceleration}
 
 \challenge
-In order to achieve the expected results with the proposed methods, a lot of computational power may be necessary. The blood simulations, for instance, are computation intensive (e.g., 48 hours running on a 200-CPU cluster \citep{deBeule}). The proposed optimization process, as well, is a classic case study for the use of clusters and grids, given the number of potential variables in the problem. I envision the use of such architectures, but bringing them to the clinic is impractical and expensive. A more viable, yet powerful, solution is thus necessary.
+In order to achieve the expected results with the proposed methods, a lot of computational power may be necessary. The blood simulations, for instance, are very computation intensive (e.g., 48 hours running on a 200-CPU cluster \citep{deBeule}). The proposed optimization process, as well, is a classic case study for the use of clusters and grids, given the number of potential variables in the problem. I envision the use of such architectures, but bringing them to the clinic is impractical and expensive. A more viable, yet powerful, solution is thus necessary.
 
 The FASTRA\footnote{http://fastra.ua.ac.be/en/index.html} technology is a successful attempt of building a desktop supercomputer using multiple GPUs. At the cost of a couple of high-end desktop computers, this technology yields computing power comparable to more than 256 CPUs working together, with proper GPU programming.
 
-In GPU programming, however, memory transfers between the computer's main memory and the GPU may impose a severe bottleneck. Given the reduced memory size in graphics cards, relative to available RAM sizes, and the increasing size of medical image files, image buffers cannot be completely allocated in GPU memory. As a consequence, a smart memory transfer scheme must be devised. 
+In GPU programming, however, the size of the data to process may be larger than the available GPU memory. In this case, we need to be selective about which parts of the data should be transferred to the GPU memory at each time. In this project, it is possible that the areas of interest in the image, that is, those with the vessels under study, occupy a small part of the image. Careful identification of this part of the image could minimize data transfers between RAM and GPU. 
 
 \approach
 In \citep{Pinho:Cache1}, a similar problem was dealt with, but in a different scale. Since image processing pipelines may require several simultaneous copies of the image buffer, current available RAMs may not be large enough. An out-of-core solution for image processing based on sliding window cache and pre-fetching techniques was then proposed. In other words, only the parts of the image that are necessary in a given moment reside in main memory. The other parts remain in disk. Using a-priori knowledge about the image traversal pattern of image processing algorithms, it is possible to predict which regions of the image will be needed in the future. These images can be asynchronously fetched from disk and stored in a cache before being requested by the algorithm. If the I/O operation is fast enough, it is very likely that the algorithm will not have to wait for the request complete. 
 
-The method above can similarly be applied in transfers between the computer's main memory and the GPU. I will then analyse the image traversal patterns of the algorithms developed in this project and adapt the cache and pre-fetching method to the GPU vs. RAM architecture. In this way, the stent choice optimization can potentially be made without the need of the cluster structure.
+The method above can similarly be applied in the selection of what data to bring to the GPU. I will then analyse the image traversal patterns of the algorithms developed in this project and develop new cache and pre-fetching strategies for the GPU vs. RAM architecture. In this way, the stent choice optimization can potentially be made in the clinic without the need of the cluster structure.
 
 \medskip
 \medskip

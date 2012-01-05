@@ -4,9 +4,9 @@ Version=4
 
 [ProjectInfo]
 MainFile=Thesis.tex
-UseBibTeX=1
-UseMakeIndex=1
-ActiveProfile=LaTeX => PS => PDF B5 (bibunit)
+UseBibTeX=0
+UseMakeIndex=0
+ActiveProfile=LaTeX => PDF
 ProjectLanguage=en
 ProjectDialect=US
 
